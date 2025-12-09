@@ -1,7 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { BiSolidCategoryAlt, BiSolidOffer, BiTask } from "react-icons/bi";
 import { BsShieldPlus } from "react-icons/bs";
-import { FaBorderAll, FaShopware, FaUsers } from "react-icons/fa";
+import {
+  FaBorderAll,
+  FaCheckCircle,
+  FaClipboardList,
+  FaShopware,
+  FaSyncAlt,
+  FaTimesCircle,
+  FaTruck,
+  FaUndoAlt,
+  FaUsers,
+} from "react-icons/fa";
 import { FaUsersRays } from "react-icons/fa6";
 import { FiUsers } from "react-icons/fi";
 import { GoHome } from "react-icons/go";
@@ -234,7 +244,7 @@ const SideNavBar = () => {
 
           {/* ......Offer Start....... */}
 
-          {user?.role_id?.offer_show === true && (
+          {/* {user?.role_id?.offer_show === true && (
             <MenuItem
               to="/offer"
               icon={BiSolidOffer}
@@ -242,7 +252,7 @@ const SideNavBar = () => {
               isActive={isActive("/offer")}
               onClick={closeAllDropdowns}
             />
-          )}
+          )} */}
           {/* ......Offer End....... */}
 
           {/* ......Coupon Start....... */}
@@ -358,42 +368,42 @@ const SideNavBar = () => {
             <>
               <MenuItem
                 to="/order"
-                icon={FaBorderAll}
+                icon={FaClipboardList}
                 label="Order List"
                 isActive={isActive("/order")}
                 onClick={closeAllDropdowns}
               />
               <MenuItem
                 to="/processing-order"
-                icon={FaBorderAll}
+                icon={FaSyncAlt}
                 label="Processing Order"
                 isActive={isActive("/processing-order")}
                 onClick={closeAllDropdowns}
               />
               <MenuItem
                 to="/steadfast-order"
-                icon={FaBorderAll}
+                icon={FaCheckCircle}
                 label="SteadFast Order"
                 isActive={isActive("/steadfast-order")}
                 onClick={closeAllDropdowns}
               />
               <MenuItem
                 to="/delivery-order"
-                icon={FaBorderAll}
+                icon={FaTruck}
                 label="Delivery Order"
                 isActive={isActive("/delivery-order")}
                 onClick={closeAllDropdowns}
               />
               <MenuItem
                 to="/return-order"
-                icon={FaBorderAll}
+                icon={FaUndoAlt}
                 label="Return Order"
                 isActive={isActive("/return-order")}
                 onClick={closeAllDropdowns}
               />
               <MenuItem
                 to="/cancel-order"
-                icon={FaBorderAll}
+                icon={FaTimesCircle}
                 label="Cancel Order"
                 isActive={isActive("/cancel-order")}
                 onClick={closeAllDropdowns}
@@ -402,7 +412,7 @@ const SideNavBar = () => {
           )}
 
           {/* ......Offer Order Start....... */}
-          {user?.role_id?.offer_order_show === true && (
+          {/* {user?.role_id?.offer_order_show === true && (
           <DropdownMenu
             label="Offer Order"
             icon={FaShopware}
@@ -446,7 +456,7 @@ const SideNavBar = () => {
               isActive={isActive("/cancel-offer-order")}
             />
           </DropdownMenu>
-          )}
+          )} */}
           {/* ......Offer Order End....... */}
 
           {/* ......WholeSeller end.......  */}

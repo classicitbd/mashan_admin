@@ -34,25 +34,25 @@ const UpdateProductImageDes = ({
 
   const fileInputRef = useRef(null);
   const thumbnailInputRef = useRef(null);
-  const sizechartInputRef = useRef(null);
+  // const sizechartInputRef = useRef(null);
 
   const watchImages = watch("other_images");
 
-  const handleSizeChartChange = (e) => {
-    const file = e.target.files?.[0]; // Safe check for file existence
-    if (file) {
-      setSizeChartPreview(URL.createObjectURL(file));
-      setValue("size_chart", file); // Update React Hook Form value
-    }
-  };
+  // const handleSizeChartChange = (e) => {
+  //   const file = e.target.files?.[0]; // Safe check for file existence
+  //   if (file) {
+  //     setSizeChartPreview(URL.createObjectURL(file));
+  //     setValue("size_chart", file); // Update React Hook Form value
+  //   }
+  // };
 
-  const removeSizeChart = () => {
-    setSizeChartPreview(null);
-    setValue("size_chart", null); // Reset React Hook Form value
-    if (sizechartInputRef.current) {
-      sizechartInputRef.current.value = ""; // Reset input field
-    }
-  };
+  // const removeSizeChart = () => {
+  //   setSizeChartPreview(null);
+  //   setValue("size_chart", null); // Reset React Hook Form value
+  //   if (sizechartInputRef.current) {
+  //     sizechartInputRef.current.value = ""; // Reset input field
+  //   }
+  // };
 
   const handleThumbnailChange = (e) => {
     const file = e.target.files?.[0]; // Safe check for file existence
@@ -336,7 +336,7 @@ const UpdateProductImageDes = ({
         </div>
 
         {/* Thumbnail Upload */}
-        <div className="my-6">
+        {/* <div className="my-6">
           <h2 className="text-lg text-gray-700 font-semibold">Size Chart</h2>
           <div className="border-dashed border my-3 bg-white border-blue-400 rounded-lg  text-center">
             {sizeChartPreview ? (
@@ -378,22 +378,22 @@ const UpdateProductImageDes = ({
               </p>
             )}
           </div>
-        </div>
+        </div> */}
 
-       {/* Product Video */}
-          <div className="">
-            <label htmlFor="main_video_link" className="font-medium">
-              Product Video URL
-            </label>
-            <input
-              defaultValue={productData?.main_video_link || ""}
-              {...register("main_video_link")}
-              id="main_video_link"
-              type="text"
-              placeholder="Enter Product Video URL"
-              className="block w-full p-2.5 text-gray-800 outline-primaryColor bg-white border border-gray-300 rounded-lg mt-2"
-            />
-          </div>
+        {/* Product Video */}
+        <div className="">
+          <label htmlFor="main_video_link" className="font-medium">
+            Product Video URL
+          </label>
+          <input
+            defaultValue={productData?.main_video_link || ""}
+            {...register("main_video_link")}
+            id="main_video_link"
+            type="text"
+            placeholder="Enter Product Video URL"
+            className="block w-full p-2.5 text-gray-800 outline-primaryColor bg-white border border-gray-300 rounded-lg mt-2"
+          />
+        </div>
 
         {/* Image section end */}
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8 mt-4">
@@ -516,6 +516,7 @@ const UpdateProductImageDes = ({
               value={inputKeyword}
               onChange={handleKeywordChange}
               onKeyDown={handleKeyPress}
+              placeholder="After giving keyword press enter"
             />
           </div>
 

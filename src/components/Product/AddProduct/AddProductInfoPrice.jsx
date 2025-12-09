@@ -17,7 +17,8 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
               required: "Product Price is required",
             })}
             id="product_price"
-            type="number" onWheel={(e) => e.target.blur()}
+            type="number"
+            onWheel={(e) => e.target.blur()}
             placeholder="Enter Product Price"
             className="block w-full p-2.5 text-gray-800 outline-primaryColor bg-white border border-gray-300 rounded-lg mt-2"
             min={1}
@@ -26,6 +27,7 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
             <p className="text-red-600">{errors.product_price?.message}</p>
           )}
         </div>
+
         {/* Product Discount Price */}
         <div className="">
           <label htmlFor="product_discount_price" className="font-medium">
@@ -35,7 +37,8 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
             defaultValue={productInfoData?.product_discount_price}
             {...register("product_discount_price")}
             id="product_discount_price"
-            type="number" onWheel={(e) => e.target.blur()}
+            type="number"
+            onWheel={(e) => e.target.blur()}
             placeholder="Enter Product Discount Price"
             className="block w-full p-2.5 outline-primaryColor text-gray-800 bg-white border border-gray-300 rounded-lg mt-2"
             min={0}
@@ -53,7 +56,8 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
               required: "Product Buying Price is required",
             })}
             id="product_buying_price"
-            type="number" onWheel={(e) => e.target.blur()}
+            type="number"
+            onWheel={(e) => e.target.blur()}
             placeholder="Enter Product Buying Price"
             className="block w-full p-2.5 text-gray-800 outline-primaryColor bg-white border border-gray-300 rounded-lg mt-2"
             min={0}
@@ -64,6 +68,7 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
             </p>
           )}
         </div>
+
         {/* Product Quantity */}
         <div className="">
           <label htmlFor="product_quantity" className="font-medium">
@@ -75,7 +80,8 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
               required: "Product Quantity is required",
             })}
             id="product_quantity"
-            type="number" onWheel={(e) => e.target.blur()}
+            type="number"
+            onWheel={(e) => e.target.blur()}
             placeholder="Enter Product Quantity"
             className="block w-full p-2.5 text-gray-800 outline-primaryColor bg-white border border-gray-300 rounded-lg mt-2"
             min={0}
@@ -84,8 +90,9 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
             <p className="text-red-600">{errors.product_quantity?.message}</p>
           )}
         </div>
+
         {/* Reseller Price */}
-        <div className="">
+        {/* <div className="">
           <label htmlFor="product_reseller_price" className="font-medium">
             Reseller Price<span className="text-red-500">*</span>
           </label>
@@ -103,9 +110,10 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
           {errors.product_reseller_price && (
             <p className="text-red-600">{errors.product_reseller_price?.message}</p>
           )}
-        </div>
+        </div> */}
+
         {/* Wholeseller Price */}
-        <div className="">
+        {/* <div className="">
           <label htmlFor="product_wholeseller_price" className="font-medium">
             Wholeseller Price<span className="text-red-500">*</span>
           </label>
@@ -123,9 +131,10 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
           {errors.product_wholeseller_price && (
             <p className="text-red-600">{errors.product_wholeseller_price?.message}</p>
           )}
-        </div>
+        </div> */}
+
         {/* Wholeseller Min Quantity */}
-        <div className="">
+        {/* <div className="">
           <label
             htmlFor="product_wholeseller_min_quantity"
             className="font-medium"
@@ -148,7 +157,7 @@ const AddProductInfoPrice = ({ productInfoData, register, errors }) => {
               {errors.product_wholeseller_min_quantity?.message}
             </p>
           )}
-        </div>
+        </div> */}
       </div>
     </section>
   );

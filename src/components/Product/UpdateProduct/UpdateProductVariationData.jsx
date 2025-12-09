@@ -49,9 +49,9 @@ const UpdateProductVariationData = ({
     variation_discount_price: "",
     variation_buying_price: "",
     variation_quantity: "",
-    variation_reseller_price: "",
-    variation_wholeseller_price: "",
-    variation_wholeseller_min_quantity: "",
+    // variation_reseller_price: "",
+    // variation_wholeseller_price: "",
+    // variation_wholeseller_min_quantity: "",
   });
 
   const { data: attributes = [], isLoading } = useQuery({
@@ -185,9 +185,9 @@ const UpdateProductVariationData = ({
         variation_discount_price: "",
         variation_buying_price: "",
         variation_quantity: "",
-        variation_reseller_price: "",
-        variation_wholeseller_price: "",
-        variation_wholeseller_min_quantity: "",
+        // variation_reseller_price: "",
+        // variation_wholeseller_price: "",
+        // variation_wholeseller_min_quantity: "",
       };
     });
   };
@@ -233,18 +233,18 @@ const UpdateProductVariationData = ({
       if (bulkInput.variation_quantity !== "") {
         updatedRow.variation_quantity = bulkInput.variation_quantity;
       }
-      if (bulkInput.variation_reseller_price !== "") {
-        updatedRow.variation_reseller_price =
-          bulkInput.variation_reseller_price;
-      }
-      if (bulkInput.variation_wholeseller_price !== "") {
-        updatedRow.variation_wholeseller_price =
-          bulkInput.variation_wholeseller_price;
-      }
-      if (bulkInput.variation_wholeseller_min_quantity !== "") {
-        updatedRow.variation_wholeseller_min_quantity =
-          bulkInput.variation_wholeseller_min_quantity;
-      }
+      // if (bulkInput.variation_reseller_price !== "") {
+      //   updatedRow.variation_reseller_price =
+      //     bulkInput.variation_reseller_price;
+      // }
+      // if (bulkInput.variation_wholeseller_price !== "") {
+      //   updatedRow.variation_wholeseller_price =
+      //     bulkInput.variation_wholeseller_price;
+      // }
+      // if (bulkInput.variation_wholeseller_min_quantity !== "") {
+      //   updatedRow.variation_wholeseller_min_quantity =
+      //     bulkInput.variation_wholeseller_min_quantity;
+      // }
 
       return updatedRow;
     });
@@ -378,9 +378,9 @@ const UpdateProductVariationData = ({
       {/* Bulk input form */}
       <div style={{ marginBottom: "20px" }}>
         <h3 className="font-semibold my-2">Bulk Update:</h3>
-        <div className="grid grid-cols-4 gap-4">
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Price:</label>
+        <div className="grid grid-cols-5 gap-4">
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Price:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
@@ -397,8 +397,8 @@ const UpdateProductVariationData = ({
             />
           </div>
 
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Discount Price:</label>
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Discount Price:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
@@ -415,8 +415,8 @@ const UpdateProductVariationData = ({
             />
           </div>
 
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Buying Price:</label>
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Buying Price:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
@@ -433,8 +433,8 @@ const UpdateProductVariationData = ({
             />
           </div>
 
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Variant Quantity:</label>
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Variant Quantity:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
@@ -451,7 +451,7 @@ const UpdateProductVariationData = ({
             />
           </div>
 
-          <div className="my-2 flex items-center">
+          {/* <div className="my-2 flex flex-col">
             <label className="w-full text-right pr-4">Reseller Price:</label>
             <input
               type="number"
@@ -508,11 +508,11 @@ const UpdateProductVariationData = ({
                 }
               }}
             />
-          </div>
+          </div> */}
 
           <button
             type="button"
-            className="btn py-3 px-3 my-4 bg-primaryColor text-white font-semibold hover:bg-btnHoverColor rounded-md cursor-pointer"
+            className="btn py-3 px-3 mt-7 mb-2.5 bg-primaryColor text-white font-semibold hover:bg-btnHoverColor rounded-md cursor-pointer"
             onClick={handleBulkSubmit}
           >
             Apply to All
@@ -537,7 +537,7 @@ const UpdateProductVariationData = ({
                   <td className="whitespace-nowrap px-4 py-5">
                     Variant Quantity
                   </td>
-                  <td className="whitespace-nowrap px-4 py-5">
+                  {/* <td className="whitespace-nowrap px-4 py-5">
                     Reseller Price
                   </td>
                   <td className="whitespace-nowrap px-4 py-5">
@@ -545,7 +545,7 @@ const UpdateProductVariationData = ({
                   </td>
                   <td className="whitespace-nowrap px-4 py-5">
                     Wholeseller Min Quantity
-                  </td>
+                  </td> */}
                   <td className="whitespace-nowrap px-4 py-5">
                     Variation Image
                   </td>
@@ -625,7 +625,7 @@ const UpdateProductVariationData = ({
                         }
                       />
                     </td>
-                    <td className="whitespace-nowrap py-1.5">
+                    {/* <td className="whitespace-nowrap py-1.5">
                       <input
                         type="number"
                         onWheel={(e) => e.target.blur()}
@@ -669,7 +669,7 @@ const UpdateProductVariationData = ({
                           )
                         }
                       />
-                    </td>
+                    </td> */}
                     {/* Image */}
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">

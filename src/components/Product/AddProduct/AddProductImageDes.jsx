@@ -28,27 +28,27 @@ const AddProductImageDes = ({
 
   const fileInputRef = useRef(null);
   const thumbnailInputRef = useRef(null);
-  const sizechartInputRef = useRef(null);
+  // const sizechartInputRef = useRef(null);
   const [imagePreviews, setImagePreviews] = useState([]);
-  const [sizeChartPreview, setSizeChartPreview] = useState("");
+  // const [sizeChartPreview, setSizeChartPreview] = useState("");
 
   const watchImages = watch("other_images");
 
-  const handleSizeChartChange = (e) => {
-    const file = e.target.files?.[0]; // Safe check for file existence
-    if (file) {
-      setSizeChartPreview(URL.createObjectURL(file));
-      setValue("size_chart", file); // Update React Hook Form value
-    }
-  };
+  // const handleSizeChartChange = (e) => {
+  //   const file = e.target.files?.[0]; // Safe check for file existence
+  //   if (file) {
+  //     setSizeChartPreview(URL.createObjectURL(file));
+  //     setValue("size_chart", file); // Update React Hook Form value
+  //   }
+  // };
 
-  const removeSizeChart = () => {
-    setSizeChartPreview(null);
-    setValue("size_chart", null); // Reset React Hook Form value
-    if (sizechartInputRef.current) {
-      sizechartInputRef.current.value = ""; // Reset input field
-    }
-  };
+  // const removeSizeChart = () => {
+  //   setSizeChartPreview(null);
+  //   setValue("size_chart", null); // Reset React Hook Form value
+  //   if (sizechartInputRef.current) {
+  //     sizechartInputRef.current.value = ""; // Reset input field
+  //   }
+  // };
 
   const handleThumbnailChange = (e) => {
     const file = e.target.files?.[0]; // Safe check for file existence
@@ -328,7 +328,7 @@ const AddProductImageDes = ({
         </div>
 
         {/* Thumbnail Upload */}
-        <div className="my-6">
+        {/* <div className="my-6">
           <h2 className="text-lg text-gray-700 font-semibold">Size Chart</h2>
           <div className="border-dashed border my-3 bg-white border-blue-400 rounded-lg  text-center">
             {sizeChartPreview ? (
@@ -370,44 +370,44 @@ const AddProductImageDes = ({
               </p>
             )}
           </div>
-        </div>
+        </div> */}
 
         {/* Product Video */}
-          <div className="">
-            <label htmlFor="main_video_link" className="font-medium">
-              Product Video URL
-            </label>
-            <input
-              {...register("main_video_link")}
-              id="main_video_link"
-              type="text"
-              placeholder="Enter Product Video URL"
-              className="block w-full p-2.5 text-gray-800 outline-primaryColor bg-white border border-gray-300 rounded-lg mt-2"
-            />
-          </div>
+        <div className="">
+          <label htmlFor="main_video_link" className="font-medium">
+            Product Video URL
+          </label>
+          <input
+            {...register("main_video_link")}
+            id="main_video_link"
+            type="text"
+            placeholder="Enter Product Video URL"
+            className="block w-full p-2.5 text-gray-800 outline-primaryColor bg-white border border-gray-300 rounded-lg mt-2"
+          />
+        </div>
 
         {/* Image section end */}
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8 mt-4">
           {/* Trending Product */}
           <div className=" space-y-2 mt-4">
-              <label htmlFor="trending_product" className="font-medium">
-                Trending Product
-              </label>
-              <Select
-                id="trending_product"
-                name="trending_product"
-                placeholder="-Select Trending Product-"
-                defaultValue={{ value: false, label: "No" }}
-                options={[
-                  { value: true, label: "Yes" },
-                  { value: false, label: "No" },
-                ]}
-                aria-label="Select Trending Product"
-                onChange={(selectedOption) =>
-                  settrendingProduct(selectedOption?.value)
-                }
-              ></Select>
-            </div>
+            <label htmlFor="trending_product" className="font-medium">
+              Trending Product
+            </label>
+            <Select
+              id="trending_product"
+              name="trending_product"
+              placeholder="-Select Trending Product-"
+              defaultValue={{ value: false, label: "No" }}
+              options={[
+                { value: true, label: "Yes" },
+                { value: false, label: "No" },
+              ]}
+              aria-label="Select Trending Product"
+              onChange={(selectedOption) =>
+                settrendingProduct(selectedOption?.value)
+              }
+            ></Select>
+          </div>
           {/* Product Warrenty */}
           <div className="">
             <label htmlFor="product_warrenty" className="font-medium">
@@ -500,6 +500,7 @@ const AddProductImageDes = ({
               value={inputKeyword}
               onChange={handleKeywordChange}
               onKeyDown={handleKeyPress}
+              placeholder="After giving keyword press enter to add keyword"
             />
           </div>
 

@@ -197,54 +197,54 @@ const AddProductPage = () => {
           setLoading(false);
           return;
         }
-        if (item.variation_reseller_price < 0) {
-          toast.error(`Reseller Price is required at serial no ${index + 1}`, {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          setLoading(false);
-          return;
-        }
-        if (item.variation_wholeseller_price < 0) {
-          toast.error(
-            `Wholeseller Price is required at serial no ${index + 1}`,
-            {
-              position: "top-center",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            }
-          );
-          setLoading(false);
-          return;
-        }
-        if (item.variation_wholeseller_min_quantity < 0) {
-          toast.error(
-            `Wholeseller Min Quantity is required at serial no ${index + 1}`,
-            {
-              position: "top-center",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            }
-          );
-          setLoading(false);
-          return;
-        }
+        // if (item.variation_reseller_price < 0) {
+        //   toast.error(`Reseller Price is required at serial no ${index + 1}`, {
+        //     position: "top-center",
+        //     autoClose: 2000,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        //     theme: "light",
+        //   });
+        //   setLoading(false);
+        //   return;
+        // }
+        // if (item.variation_wholeseller_price < 0) {
+        //   toast.error(
+        //     `Wholeseller Price is required at serial no ${index + 1}`,
+        //     {
+        //       position: "top-center",
+        //       autoClose: 2000,
+        //       hideProgressBar: false,
+        //       closeOnClick: true,
+        //       pauseOnHover: true,
+        //       draggable: true,
+        //       progress: undefined,
+        //       theme: "light",
+        //     }
+        //   );
+        //   setLoading(false);
+        //   return;
+        // }
+        // if (item.variation_wholeseller_min_quantity < 0) {
+        //   toast.error(
+        //     `Wholeseller Min Quantity is required at serial no ${index + 1}`,
+        //     {
+        //       position: "top-center",
+        //       autoClose: 2000,
+        //       hideProgressBar: false,
+        //       closeOnClick: true,
+        //       pauseOnHover: true,
+        //       draggable: true,
+        //       progress: undefined,
+        //       theme: "light",
+        //     }
+        //   );
+        //   setLoading(false);
+        //   return;
+        // }
       });
 
       if (variationValidateError) {
@@ -397,18 +397,18 @@ const AddProductPage = () => {
             `variations[${index}][variation_buying_price]`,
             value?.variation_buying_price
           );
-          formData.append(
-            `variations[${index}][variation_reseller_price]`,
-            value?.variation_reseller_price
-          );
-          formData.append(
-            `variations[${index}][variation_wholeseller_price]`,
-            value?.variation_wholeseller_price
-          );
-          formData.append(
-            `variations[${index}][variation_wholeseller_min_quantity]`,
-            value?.variation_wholeseller_min_quantity
-          );
+          // formData.append(
+          //   `variations[${index}][variation_reseller_price]`,
+          //   value?.variation_reseller_price
+          // );
+          // formData.append(
+          //   `variations[${index}][variation_wholeseller_price]`,
+          //   value?.variation_wholeseller_price
+          // );
+          // formData.append(
+          //   `variations[${index}][variation_wholeseller_min_quantity]`,
+          //   value?.variation_wholeseller_min_quantity
+          // );
           // ✅ variation image
           if (value?.variation_image) {
             formData.append(

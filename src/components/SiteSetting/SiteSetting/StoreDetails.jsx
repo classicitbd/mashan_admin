@@ -21,8 +21,8 @@ const StoreDetails = ({ refetch, getInitialCurrencyData }) => {
           watsapp: data?.watsapp,
           tik_tok: data?.tik_tok,
           welcome_message: data?.welcome_message,
-          home_video_one: data?.home_video_one,
-          home_video_two: data?.home_video_two,
+          // home_video_one: data?.home_video_one,
+          // home_video_two: data?.home_video_two,
         };
 
         const response = await fetch(`${BASE_URL}/setting`, {
@@ -161,7 +161,7 @@ const StoreDetails = ({ refetch, getInitialCurrencyData }) => {
               className="mt-2 w-full rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2"
             />
           </div>
-          <div className="">
+          {/* <div className="">
             <label
               htmlFor="home_video_one"
               className="block text-xs font-medium text-gray-700"
@@ -176,8 +176,8 @@ const StoreDetails = ({ refetch, getInitialCurrencyData }) => {
               placeholder="Enter Home Video One Code"
               className="mt-2 w-full rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2"
             />
-          </div>
-          <div className="">
+          </div> */}
+          {/* <div className="">
             <label
               htmlFor="home_video_two"
               className="block text-xs font-medium text-gray-700"
@@ -192,7 +192,7 @@ const StoreDetails = ({ refetch, getInitialCurrencyData }) => {
               placeholder="Enter Home Video Two Code"
               className="mt-2 w-full rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2"
             />
-          </div>
+          </div> */}
           {/* <div className="">
             <label
               htmlFor="welcome_message"

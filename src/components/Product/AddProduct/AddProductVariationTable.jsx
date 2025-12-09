@@ -35,9 +35,9 @@ const AddProductVariationTable = ({
         variation_discount_price: 0,
         variation_buying_price: 0,
         variation_quantity: 1,
-        variation_reseller_price: 1,
-        variation_wholeseller_price: 1,
-        variation_wholeseller_min_quantity: 1,
+        // variation_reseller_price: 1,
+        // variation_wholeseller_price: 1,
+        // variation_wholeseller_min_quantity: 1,
       }));
       setVariationTableData(initialData);
       setPrevSelectedAttributes(attributeDataToSubmit);
@@ -50,9 +50,9 @@ const AddProductVariationTable = ({
     variation_discount_price: 0,
     variation_buying_price: 0,
     variation_quantity: 1,
-    variation_reseller_price: 1,
-    variation_wholeseller_price: 1,
-    variation_wholeseller_min_quantity: 1,
+    // variation_reseller_price: 1,
+    // variation_wholeseller_price: 1,
+    // variation_wholeseller_min_quantity: 1,
     variation_image: null,
   });
 
@@ -67,20 +67,24 @@ const AddProductVariationTable = ({
     const updatedFormData = variationTableData?.map((row) => ({
       ...row,
       variation_price: bulkInput?.variation_price || row?.variation_price,
+
       variation_discount_price:
         bulkInput?.variation_discount_price || row?.variation_discount_price,
+
       variation_buying_price:
         bulkInput?.variation_buying_price || row?.variation_buying_price,
+
       variation_quantity:
         bulkInput?.variation_quantity || row?.variation_quantity,
-      variation_reseller_price:
-        bulkInput?.variation_reseller_price || row?.variation_reseller_price,
-      variation_wholeseller_price:
-        bulkInput?.variation_wholeseller_price ||
-        row?.variation_wholeseller_price,
-      variation_wholeseller_min_quantity:
-        bulkInput?.variation_wholeseller_min_quantity ||
-        row?.variation_wholeseller_min_quantity,
+
+      // variation_reseller_price:
+      //   bulkInput?.variation_reseller_price || row?.variation_reseller_price,
+      // variation_wholeseller_price:
+      //   bulkInput?.variation_wholeseller_price ||
+      //   row?.variation_wholeseller_price,
+      // variation_wholeseller_min_quantity:
+      //   bulkInput?.variation_wholeseller_min_quantity ||
+      //   row?.variation_wholeseller_min_quantity,
     }));
     setVariationTableData(updatedFormData);
   };
@@ -138,16 +142,16 @@ const AddProductVariationTable = ({
   return (
     <>
       {/* Bulk input form */}
-      <div style={{ marginBottom: "20px" }}>
+      <div className="mb-5">
         <h3 className="font-semibold my-2">Bulk Update:</h3>
-        <div className="grid grid-cols-4 gap-4">
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Price:</label>
+        <div className="grid grid-cols-5 gap-4">
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Price:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
               placeholder="Variant price"
-              className="p-2 border rounded-md outline-primaryColor w-full"
+              className="p-2 border rounded-md outline-primaryColor"
               value={bulkInput?.variation_price}
               min={1}
               onChange={(e) => {
@@ -159,8 +163,8 @@ const AddProductVariationTable = ({
             />
           </div>
 
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Discount Price:</label>
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Discount Price:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
@@ -177,8 +181,8 @@ const AddProductVariationTable = ({
             />
           </div>
 
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Buying Price:</label>
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Buying Price:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
@@ -195,8 +199,8 @@ const AddProductVariationTable = ({
             />
           </div>
 
-          <div className="my-2 flex items-center">
-            <label className="w-full text-right pr-4">Variant Quantity:</label>
+          <div className="my-2 flex flex-col">
+            <label className="w-full pr-4">Variant Quantity:</label>
             <input
               type="number"
               onWheel={(e) => e.target.blur()}
@@ -212,7 +216,7 @@ const AddProductVariationTable = ({
               }}
             />
           </div>
-          <div className="my-2 flex items-center">
+          {/* <div className="my-2 flex items-center">
             <label className="w-full text-right pr-4">Reseller Price:</label>
             <input
               type="number"
@@ -228,8 +232,8 @@ const AddProductVariationTable = ({
                 }
               }}
             />
-          </div>
-          <div className="my-2 flex items-center">
+          </div> */}
+          {/* <div className="my-2 flex items-center">
             <label className="w-full text-right pr-4">Wholeseller Price:</label>
             <input
               type="number"
@@ -245,8 +249,8 @@ const AddProductVariationTable = ({
                 }
               }}
             />
-          </div>
-          <div className="my-2 flex items-center">
+          </div> */}
+          {/* <div className="my-2 flex items-center">
             <label className="w-full text-right pr-4">
               Wholeseller Min Quantity:
             </label>
@@ -267,11 +271,11 @@ const AddProductVariationTable = ({
                 }
               }}
             />
-          </div>
+          </div> */}
 
           <button
             type="button"
-            className="btn py-3 px-3 my-4 bg-primaryColor text-white font-semibold hover:bg-btnHoverColor rounded-md cursor-pointer"
+            className="btn py-3 px-3 mt-7 mb-2.5 bg-primaryColor text-white font-semibold hover:bg-btnHoverColor rounded-md cursor-pointer"
             onClick={handleBulkSubmit}
           >
             Apply to All
@@ -293,13 +297,13 @@ const AddProductVariationTable = ({
                 <td className="whitespace-nowrap px-4 py-5">
                   Variant Quantity
                 </td>
-                <td className="whitespace-nowrap px-4 py-5">Reseller Price</td>
+                {/* <td className="whitespace-nowrap px-4 py-5">Reseller Price</td>
                 <td className="whitespace-nowrap px-4 py-5">
                   Wholeseller Price
                 </td>
                 <td className="whitespace-nowrap px-4 py-5">
                   Wholeseller Min Quantity
-                </td>
+                </td> */}
                 <td className="whitespace-nowrap px-4 py-5">Variation Image</td>
               </tr>
             </thead>
@@ -381,7 +385,7 @@ const AddProductVariationTable = ({
                       }}
                     />
                   </td>
-                  <td className="whitespace-nowrap py-1.5 font-medium text-gray-700">
+                  {/* <td className="whitespace-nowrap py-1.5 font-medium text-gray-700">
                     <input
                       type="number"
                       onWheel={(e) => e.target.blur()}
@@ -396,8 +400,8 @@ const AddProductVariationTable = ({
                         }
                       }}
                     />
-                  </td>
-                  <td className="whitespace-nowrap py-1.5 font-medium text-gray-700">
+                  </td> */}
+                  {/* <td className="whitespace-nowrap py-1.5 font-medium text-gray-700">
                     <input
                       type="number"
                       onWheel={(e) => e.target.blur()}
@@ -418,8 +422,8 @@ const AddProductVariationTable = ({
                         }
                       }}
                     />
-                  </td>
-                  <td className="whitespace-nowrap py-1.5 font-medium text-gray-700">
+                  </td> */}
+                  {/* <td className="whitespace-nowrap py-1.5 font-medium text-gray-700">
                     <input
                       type="number"
                       onWheel={(e) => e.target.blur()}
@@ -441,7 +445,7 @@ const AddProductVariationTable = ({
                         }
                       }}
                     />
-                  </td>
+                  </td> */}
                   {/* Image */}
                   <td className="px-4 py-3">
                     <div

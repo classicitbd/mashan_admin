@@ -93,10 +93,10 @@ const ProductUpdatePage = () => {
         product_discount_price: productData?.product_discount_price || 0,
         product_buying_price: productData?.product_buying_price || 0,
         product_quantity: productData?.product_quantity || 0,
-        product_reseller_price: productData?.product_reseller_price || 0,
-        product_wholeseller_price: productData?.product_wholeseller_price || 0,
-        product_wholeseller_min_quantity:
-          productData?.product_wholeseller_min_quantity || 0,
+        // product_reseller_price: productData?.product_reseller_price || 0,
+        // product_wholeseller_price: productData?.product_wholeseller_price || 0,
+        // product_wholeseller_min_quantity:
+        //   productData?.product_wholeseller_min_quantity || 0,
         variationData: productData?.variations || [],
       });
       setCategory_id(productData?.category_id?._id || "");
@@ -248,38 +248,38 @@ const ProductUpdatePage = () => {
           return;
         }
 
-        if (item.variation_reseller_price < 0) {
-          toast.error(`Reseller Price is required at serial no ${index + 1}`, {
-            position: "top-center",
-            autoClose: 2000,
-          });
-          setLoading(false);
-          return;
-        }
+        // if (item.variation_reseller_price < 0) {
+        //   toast.error(`Reseller Price is required at serial no ${index + 1}`, {
+        //     position: "top-center",
+        //     autoClose: 2000,
+        //   });
+        //   setLoading(false);
+        //   return;
+        // }
 
-        if (item.variation_wholeseller_price < 0) {
-          toast.error(
-            `Wholeseller Price is required at serial no ${index + 1}`,
-            {
-              position: "top-center",
-              autoClose: 2000,
-            }
-          );
-          setLoading(false);
-          return;
-        }
+        // if (item.variation_wholeseller_price < 0) {
+        //   toast.error(
+        //     `Wholeseller Price is required at serial no ${index + 1}`,
+        //     {
+        //       position: "top-center",
+        //       autoClose: 2000,
+        //     }
+        //   );
+        //   setLoading(false);
+        //   return;
+        // }
 
-        if (item.variation_wholeseller_min_quantity < 0) {
-          toast.error(
-            `Wholeseller Min Quantity is required at serial no ${index + 1}`,
-            {
-              position: "top-center",
-              autoClose: 2000,
-            }
-          );
-          setLoading(false);
-          return;
-        }
+        // if (item.variation_wholeseller_min_quantity < 0) {
+        //   toast.error(
+        //     `Wholeseller Min Quantity is required at serial no ${index + 1}`,
+        //     {
+        //       position: "top-center",
+        //       autoClose: 2000,
+        //     }
+        //   );
+        //   setLoading(false);
+        //   return;
+        // }
       }
     }
 
@@ -428,18 +428,18 @@ const ProductUpdatePage = () => {
             `variations[${index}][variation_buying_price]`,
             value?.variation_buying_price
           );
-          formData.append(
-            `variations[${index}][variation_reseller_price]`,
-            value?.variation_reseller_price
-          );
-          formData.append(
-            `variations[${index}][variation_wholeseller_price]`,
-            value?.variation_wholeseller_price
-          );
-          formData.append(
-            `variations[${index}][variation_wholeseller_min_quantity]`,
-            value?.variation_wholeseller_min_quantity
-          );
+          // formData.append(
+          //   `variations[${index}][variation_reseller_price]`,
+          //   value?.variation_reseller_price
+          // );
+          // formData.append(
+          //   `variations[${index}][variation_wholeseller_price]`,
+          //   value?.variation_wholeseller_price
+          // );
+          // formData.append(
+          //   `variations[${index}][variation_wholeseller_min_quantity]`,
+          //   value?.variation_wholeseller_min_quantity
+          // );
           // 1) jodi notun File select kora hoye thake
           if (value.variation_image instanceof File) {
             formData.append(

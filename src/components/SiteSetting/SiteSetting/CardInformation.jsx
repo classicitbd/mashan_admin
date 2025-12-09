@@ -178,7 +178,7 @@ const CardInformation = ({ refetch, getInitialCurrencyData }) => {
               id="card_one_logo"
               type="file"
               accept="image/*"
-              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
+              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white file:px-2  rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
             />
           </div>
 
@@ -219,7 +219,7 @@ const CardInformation = ({ refetch, getInitialCurrencyData }) => {
               id="card_two_logo"
               type="file"
               accept="image/*"
-              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
+              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white file:px-2 rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
             />
           </div>
 
@@ -260,7 +260,7 @@ const CardInformation = ({ refetch, getInitialCurrencyData }) => {
               id="card_three_logo"
               type="file"
               accept="image/*"
-              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
+              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white file:px-2 rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
             />
           </div>
 
@@ -301,7 +301,7 @@ const CardInformation = ({ refetch, getInitialCurrencyData }) => {
               id="card_four_logo"
               type="file"
               accept="image/*"
-              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
+              className="mt-2 w-full file:bg-secondaryNavBarColor file:border-none file:text-white file:px-2 rounded-md border-gray-200 shadow-sm sm:text-sm p-2 border-2 file:rounded cursor-pointer"
             />
           </div>
 
