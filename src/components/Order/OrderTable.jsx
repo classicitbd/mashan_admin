@@ -12,6 +12,7 @@ import { DateFormat } from "../../utils/DateFormate";
 import MiniSpinner from "../../shared/MiniSpinner/MiniSpinner";
 import Pagination from "../../common/pagination/Pagination";
 import PrintableInvoice from "../../common/printableInvoice/PrintableInvoice";
+import HistoryModal from "./HistoryModal";
 
 const OrderTable = ({
   ordersData,
@@ -27,9 +28,12 @@ const OrderTable = ({
 }) => {
   const [serialNumber, setSerialNumber] = useState();
   const [buttonloading, setButtonLoading] = useState(false);
+  const [historybuttonloading, setHistoryButtonLoading] = useState(false);
   const [printModalOpen, setPrintModalOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [selectedOrderProducts, setSelectedOrderProducts] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const { settingData, loading: settingLoading } = useContext(SettingContext);
 
@@ -235,6 +239,82 @@ const OrderTable = ({
     }
   };
 
+  const handleShowHistory = (data) => {
+    let msg = `📱 Mobile: ${data?.data?.mobile_number}\n`;
+    msg += `📦 Total Parcels: ${data?.data?.total_parcels}\n`;
+    msg += `✅ Delivered: ${data?.data?.total_delivered}\n`;
+    msg += `❌ Cancelled: ${data?.data?.total_cancel}\n\n`;
+
+    msg += "🚚 Courier Wise Details:\n";
+
+    const apis = data?.data?.apis || {};
+
+    Object.keys(apis).forEach((courierName) => {
+      const c = apis[courierName];
+      msg += `\n🔸 ${courierName}\n`;
+      msg += `   • Parcels: ${c.total_parcels}\n`;
+      msg += `   • Delivered: ${c.total_delivered_parcels}\n`;
+      msg += `   • Cancelled: ${c.total_cancelled_parcels}\n`;
+    });
+
+    setModalMessage(msg);
+    setModalVisible(true);
+  };
+
+  const handleUserOrderHistory = async (order) => {
+    try {
+      setHistoryButtonLoading(true);
+      const response = await fetch(`${BASE_URL}/order/online_history`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone: order?.customer_phone }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      if (
+        data?.statusCode === 200 &&
+        data?.success === true
+      ) {
+        if (data?.data?.mobile_number) {
+          setHistoryButtonLoading(false);
+          handleShowHistory(data);
+          // let historyMessage = `📱 Mobile: ${data?.data?.mobile_number}\n`;
+          // historyMessage += `📦 Total Parcels: ${data?.data?.total_parcels}\n`;
+          // historyMessage += `✅ Delivered: ${data?.data?.total_delivered}\n`;
+          // historyMessage += `❌ Cancelled: ${data?.data?.total_cancel}\n\n`;
+
+          // historyMessage += "🚚 Courier Wise Details:\n";
+
+          // const apis = data?.data?.apis || {};
+
+          // Object.keys(apis).forEach((courierName) => {
+          //   const c = apis[courierName];
+          //   historyMessage += `\n🔸 ${courierName}\n`;
+          //   historyMessage += `   • Parcels: ${c.total_parcels}\n`;
+          //   historyMessage += `   • Delivered: ${c.total_delivered_parcels}\n`;
+          //   historyMessage += `   • Cancelled: ${c.total_cancelled_parcels}\n`;
+          // });
+          // alert(historyMessage);
+        } else {
+          setHistoryButtonLoading(false);
+          alert(data?.data?.message || "❗ No order history found for this number.");
+          return;
+        }
+      } else {
+        setHistoryButtonLoading(false);
+        alert("❗ No order history found for this number.");
+      }
+    } catch (error) {
+      toast.error(error?.message, { autoClose: 1000 });
+    } finally {
+      refetch();
+    }
+  };
+
+
   if (loading) {
     return <TableLoadingSkeleton />;
   }
@@ -263,6 +343,7 @@ const OrderTable = ({
                   {user?.role_id?.order_update === true && (
                     <td className="whitespace-nowrap p-4 ">Send SteadFast</td>
                   )}
+                  <td className="whitespace-nowrap p-4 ">History</td>
                   <td className="whitespace-nowrap p-4 ">Total Amount</td>
                   <td className="whitespace-nowrap p-4 ">Discount Amount</td>
                   <td className="whitespace-nowrap p-4 ">Shipping Cost</td>
@@ -279,9 +360,8 @@ const OrderTable = ({
                 {ordersData?.map((order, index) => (
                   <tr
                     key={order?._id}
-                    className={`divide-x divide-gray-200 ${
-                      index % 2 === 0 ? "bg-white" : "bg-tableRowBGColor"
-                    }`}
+                    className={`divide-x divide-gray-200 ${index % 2 === 0 ? "bg-white" : "bg-tableRowBGColor"
+                      }`}
                   >
                     <td className="whitespace-nowrap p-3">
                       {" "}
@@ -356,8 +436,8 @@ const OrderTable = ({
                           )} */}
                             {(order?.order_status == "shipped" ||
                               order?.order_status == "pending") && (
-                              <option value="delivered">Delivered</option>
-                            )}
+                                <option value="delivered">Delivered</option>
+                              )}
                             {order?.order_status !== "cancel" &&
                               order?.order_status !== "return" &&
                               order?.order_status !== "delivered" && (
@@ -389,6 +469,18 @@ const OrderTable = ({
                           </div>
                         )
                       )}
+                    </td>
+                    <td className="whitespace-nowrap p-4">
+                      {historybuttonloading ? (
+                        <MiniSpinner />
+                      ) :
+                        <button
+                          className="h-[40px] rounded-[8px] py-[10px] px-[14px] bg-green-500 hover:bg-green-400 duration-200  text-white text-sm"
+                          onClick={() => handleUserOrderHistory(order)}
+                        >
+                          History
+                        </button>
+                      }
                     </td>
 
                     <td className="whitespace-nowrap p-3">
@@ -475,6 +567,12 @@ const OrderTable = ({
           )}
         </div>
       )}
+      <HistoryModal
+        visible={modalVisible}
+        message={modalMessage}
+        onClose={() => setModalVisible(false)}
+      />
+
     </>
   );
 };
