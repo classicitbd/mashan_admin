@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@theme {
+  --color-backgroundColor: #040720;
+  --color-secondaryBackgroundColor: #ebf8ff;
+  --color-primaryColor: #040720;
+  --color-secondaryNavBarColor: #033e3e;
+  --color-navBorderColor: #f2a99d;
+  --color-btnHoverColor: #191970;
+  --color-btnBgColor: #040720;
+  --color-btnTextColor: #fff;
+  --color-crossBtnHoverColor: #ff0000;
+  --color-crossBtnHovertextColor: #ffff;
+  --color-deleteButtonColor: #ff0000;
+  --color-updateBtnColor: #040720;
+  --color-activeTextColor: #12AD2B;
+  --color-inActiveTextColor: #ff0000;
+}
+
+.my-global-toast {
+  color: #ff0000;
+  font-weight: bold;
+  background-color: #fff5f5;
+  border-radius: 8px;
+}
+
+thead {
+  @apply bg-[#040720] text-white divide-y-2 uppercase;
+}
+tbody {
+  @apply text-center divide-y-2 divide-gray-300 text-[#040720];
+}
+
+/* Make sure to target react-select internal classes with higher specificity */
+.short-select .react-select__control {
+  min-height: 30px !important; /* Adjust the height */
+  height: 30px !important;
+  padding: 0 !important; /* Reduce padding */
+}
+
+.short-select .react-select__value-container {
+  padding: 0 8px !important; /* Reduce internal padding */
+}
+
+.short-select .react-select__single-value {
+  font-size: 14px !important; /* Adjust font size to match height */
+}
+
+.short-select .react-select__input {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.short-select .react-select__dropdown-indicator {
+  padding: 4px !important;
+}
+
+.short-select .react-select__indicator-separator {
+  display: none !important; /* Hide separator */
+}
