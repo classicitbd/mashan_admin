@@ -151,22 +151,13 @@ const OrderTable = ({
           {
             method: "POST",
             headers: {
-              // "Api-Key": "tc9iiq867dde8fnf4vjutvrbnpan5jfx",
-              // "Secret-Key": "sfecxdfb3epe74fbu8v4pokf",
+              "Api-Key": "rgrjfwzf2hbtnoq1tutcdmnz258a1itx",
+              "Secret-Key": "7buyszybsqhzmk2vyu9pxxg0",
               "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
           }
         );
-        // dada garments
-        // api-key: tc9iiq867dde8fnf4vjutvrbnpan5jfx
-        // secret-key: sfecxdfb3epe74fbu8v4pokf
-        // Maheya garments
-        // api-key: bsnadn4lsrdhuhjilbx04cgyj2srqrsa
-        // secret-key: uhyoxpeacu8r2pxdgak3eb60
-        // Aiman garments
-        // api-key: imb5c4ev2itixc7hrjmoqnkfu7hehkpx
-        // secret-key: alqvzcx6pwzytla4sehgubev
 
         // Parse API response
         const result = await response.json();
