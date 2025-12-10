@@ -101,19 +101,30 @@ const PrintableInvoice = ({ order, orderProducts, settingData }) => {
         <div className="grid grid-cols-2 gap-8 mb-6">
           <div>
             <h2 className="text-lg font-semibold mb-2">Billed To:</h2>
-            <p className="font-medium">{order?.customer_id?.user_name}</p>
-            <p>{order?.customer_phone}</p>
-            <p>{order?.billing_address}</p>
+            <p className="font-medium">
+              <span className="font-medium">Name: </span>
+              {order?.customer_id?.user_name}
+            </p>
             <p>
+              <span className="font-medium">Phone: </span>
+              {order?.customer_phone}
+            </p>
+            <p>
+              {" "}
+              <span className="font-medium">Address: </span>
+              {order?.billing_address}
+            </p>
+            <p>
+              <span className="font-medium">Division: </span>{" "}
               {order?.billing_district}, {order?.billing_division}
             </p>
             <p>
-              {order?.billing_area}
+              <span className="font-medium">Area:</span> {order?.billing_area}
             </p>
             <div className="flex items-center gap-4">
-            <h1 className="text-xl font-semibold">INVOICE:</h1>
-            <p className="text-gray-600">#{order?.invoice_id}</p>
-          </div>
+              <h1 className="text-xl font-semibold">INVOICE:</h1>
+              <p className="text-gray-600">#{order?.invoice_id}</p>
+            </div>
           </div>
           <div className="flex justify-end">
             <div className="w-2/3">
@@ -163,26 +174,27 @@ const PrintableInvoice = ({ order, orderProducts, settingData }) => {
               <tr key={idx} className="border-b">
                 <td className="p-3 border">{idx + 1}</td>
                 <td className="py-2 flex justify-center">
-                    <img
-                      src={product?.order_product_id?.main_image}
-                      className="w-14 h-14 rounded-md border"
-                      alt=""
-                    />
+                  <img
+                    src={product?.order_product_id?.main_image}
+                    className="w-14 h-14 rounded-md border"
+                    alt=""
+                  />
                 </td>
                 <td className="p-3 border">
                   {product?.order_product_id?.product_name}
                 </td>
-                <td className="p-3 border">
-                  {product?.variation_name || "-"}
-                </td>
+                <td className="p-3 border">{product?.variation_name || "-"}</td>
                 <td className="p-3 border">
                   {settingData?.currency_symbol || "৳"}
                   {product?.order_product_price}
                 </td>
-                <td className="p-3 border">{product?.order_product_quantity}</td>
+                <td className="p-3 border">
+                  {product?.order_product_quantity}
+                </td>
                 <td className="p-3 border">
                   {settingData?.currency_symbol || "৳"}
-                  {product?.order_product_price * product?.order_product_quantity}
+                  {product?.order_product_price *
+                    product?.order_product_quantity}
                 </td>
               </tr>
             ))}

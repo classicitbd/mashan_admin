@@ -33,17 +33,31 @@ const ViewAllOrderInfo = () => {
           <div className=" px-4">
             <p className=" font-medium uppercase">Billing To</p>
             <p className="font-medium text-xl">
-              {orders?.data?.order?.customer_id?.user_name}
+              Name:{" "}
+              <span className="font-normal">
+                {orders?.data?.order?.customer_id?.user_name}
+              </span>
             </p>
-            <p className="">{orders?.data?.order?.customer_id?.user_phone}</p>
             <p className="">
+              <span className="font-medium">Phone:</span>{" "}
+              {orders?.data?.order?.customer_id?.user_phone}
+            </p>
+            <p className="">
+              <span className="font-medium">Division:</span>{" "}
               {orders?.data?.order?.billing_division},{" "}
               {orders?.data?.order?.billing_district}
             </p>
             <p className="">
+              <span className="font-medium">Area:</span>{" "}
               {orders?.data?.order?.billing_area}
             </p>
-            <p className="">{orders?.data?.order?.billing_address}</p>
+            <p className="">
+              <span className="font-medium">Address:
+                
+                
+              </span>{" "}
+              {orders?.data?.order?.billing_address}
+            </p>
           </div>
 
           <div className=" px-4">
