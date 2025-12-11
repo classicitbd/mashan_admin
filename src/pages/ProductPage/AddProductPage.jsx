@@ -77,11 +77,11 @@ const AddProductPage = () => {
   function validateVariationProductData(item, index) {
     const { variation_price, variation_discount_price } = item;
 
-    if (!item.variation_image) {
-      toast.error(`Variation image required at serial ${index + 1}`);
-      setLoading(false);
-      return;
-    }
+    // if (!item.variation_image) {
+    //   toast.error(`Variation image required at serial ${index + 1}`);
+    //   setLoading(false);
+    //   return;
+    // }
 
     if (!item.variation_name || item.variation_name.trim() === "") {
       toast.error(`Variation name missing at serial ${index + 1}`);

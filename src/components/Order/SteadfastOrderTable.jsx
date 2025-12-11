@@ -245,7 +245,7 @@ const SteadfastOrderTable = ({
                             {order?.order_status !== "cancel" &&
                               order?.order_status !== "return" &&
                               order?.order_status !== "delivered" && (
-                                <option value="cancel">Cancel</option>
+                                <option value="return">Return</option>
                               )}
                           </select>
                         </td>

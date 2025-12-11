@@ -256,20 +256,20 @@ const permissionsData = [
       },
     ],
   },
-    {
-    Name: "Offer Order Show And Update",
-    Type: [
-      {
-        type_name: "Offer Order Update",
-        type_value: "offer_order_update",
-      },
+  //   {
+  //   Name: "Offer Order Show And Update",
+  //   Type: [
+  //     {
+  //       type_name: "Offer Order Update",
+  //       type_value: "offer_order_update",
+  //     },
 
-      {
-        type_name: "Offer Order Show",
-        type_value: "offer_order_show",
-      },
-    ],
-  },
+  //     {
+  //       type_name: "Offer Order Show",
+  //       type_value: "offer_order_show",
+  //     },
+  //   ],
+  // },
 
   // {
   //   Name: "Campaign Create And Update",
@@ -292,8 +292,6 @@ const permissionsData = [
   //     },
   //   ],
   // },
-  
-  
 
   // {
   //   Name: "Question Show And Update",
@@ -309,8 +307,6 @@ const permissionsData = [
   //     },
   //   ],
   // },
-
-
 
   // {
   //   Name: "Coupon Create And Update",
